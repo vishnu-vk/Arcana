@@ -1,0 +1,512 @@
+{% extends 'puzzle/base.html' %} {% load static %} {% load concate_tag %}
+{%block title%} Arcana - Puzzle {%endblock%} {%block content%}
+<section id="application" class="unselectable">
+  <main id="main">
+    <nav id="app-nav">
+      <div id="nav-bg1"></div>
+      <div id="nav-bg2"></div>
+      <div id="nav-wrap">
+        <div class="table">
+          <div class="table-cell">
+            <ul>
+              <span class="top line"></span>
+              {% if user.is_authenticated %}
+              <li class="logedinuser">
+                <a href="#" name="Home"
+                  ><span
+                    class="label font-reg"
+                    style="color: #fff; font-size: 20px"
+                  >
+                    <div style="width: auto; margin: auto; display: flex">
+                      <img
+                        style="
+                          width: 50px;
+                          height: 50px;
+                          border-radius: 50px;
+                          margin: auto;
+                        "
+                        src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
+                      />
+                      <span
+                        style="width: auto; margin-top: 12px; margin-left: 10px"
+                        >Hi, {{ user.socialaccount_set.all.0.extra_data.name }}
+                      </span>
+                    </div></span
+                  >
+                  <span class="row"
+                    ><span
+                      class="dark"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span>
+                    <span
+                      class="red"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span></span
+                ></a>
+              </li>
+              {% endif %}
+              <li class="active">
+                <a href="/" name="slider"
+                  ><span class="label font-reg"> Home </span>
+                  <span class="row"
+                    ><span
+                      class="dark"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span>
+                    <span
+                      class="red"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span></span
+                ></a>
+              </li>
+              <li class="">
+                <a href="{% url 'scoreboard' %}" name="scoreboard"
+                  ><span class="label font-reg"> Leader Borad </span>
+                  <span class="row"
+                    ><span
+                      class="dark"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span>
+                    <span
+                      class="red"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span></span
+                ></a>
+              </li>
+              <li class="">
+                <a href="{% url 'about' %}" name="about"
+                  ><span class="label font-reg"> About Us </span>
+                  <span class="row"
+                    ><span
+                      class="dark"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span>
+                    <span
+                      class="red"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span></span
+                ></a>
+              </li>
+              <li class="">
+                <a href="{% url 'rules' %}" name="rules"
+                  ><span class="label font-reg"> Instructions </span>
+                  <span class="row"
+                    ><span
+                      class="dark"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span>
+                    <span
+                      class="red"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span></span
+                ></a>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="">
+                <a href="{% url 'account_logout' %}" name="logout"
+                  ><span class="label font-reg"> Logout </span>
+                  <span class="row"
+                    ><span
+                      class="dark"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span>
+                    <span
+                      class="red"
+                      style="
+                        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+                      "
+                    ></span></span
+                ></a>
+              </li>
+              {% endif %}
+              <span
+                class="bot line"
+                style="transform: matrix(1, 0, 0, 1, 0, 0)"
+              ></span>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="social">
+          <li id="fb" style="transform: translate3d(0px, 0px, 0px)">
+            <a href="" target="_blank"><i class="fab fa-facebook"></i></a>
+          </li>
+          <li id="in" style="transform: translate3d(0px, 0px, 0px)">
+            <a href="" target="_blank"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li id="yt" style="transform: translate3d(0px, 0px, 0px)">
+            <a href="" target="_blank"><i class="fab fa-twitter-square"></i></a>
+          </li>
+        </ul>
+        <p class="footer">
+          <span style="transform: translate3d(0px, 0px, 0px); color: #7b7a7a"
+            ><span class="font-reg row"
+              ><i class="fas fa-laptop-code" style="color: #ff7200"></i
+              >&nbsp;DEPARTMENT OF INFORMATION TECHNOLOGY</span
+            ><br /><span class="font-reg"
+              >Created By
+              <span style="color: #ff7200">&lt;/TEAM ARCANA&gt;</span></span
+            ></span
+          >
+        </p>
+      </div>
+    </nav>
+    <div id="app-ui" class="dark">
+      <header class=""></header>
+
+      <div id="hamb">
+        <div class="open">
+          <div class="icon open-menu">
+            <div class="line-top">
+              <div
+                class="line-1"
+                style="height: 12px; transform: translate3d(0px, 0px, 0px)"
+              >
+                <span></span>
+              </div>
+              <div class="line-2"><span></span></div>
+            </div>
+            <div class="line-bot">
+              <div
+                class="line-1"
+                style="height: 32px; transform: translate3d(0px, 0px, 0px)"
+              >
+                <span></span>
+              </div>
+              <div class="line-2"><span></span></div>
+            </div>
+          </div>
+          <div class="label open-menu">
+            <span style="transform: translate3d(0px, 0px, 0px)"
+              ><span class="holder"
+                ><span class="font-reg">Menu</span>
+                <span class="open font-reg">Open</span></span
+              >
+            </span>
+          </div>
+        </div>
+        <div class="close">
+          <div class="icon close-menu">
+            <div class="line-top">
+              <div class="line-1"><span></span></div>
+              <div class="line-2"><span></span></div>
+            </div>
+            <div class="line-bot">
+              <div class="line-1"><span></span></div>
+              <div class="line-2"><span></span></div>
+            </div>
+          </div>
+          <div class="label close-menu">
+            <span
+              ><span class="holder"
+                ><span class="font-reg">Close</span>
+                <span class="close font-reg">Close</span></span
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="app-main" style="overflow-x: hidden; overflow-y: scroll">
+      <section id="index" class="root">
+        <section id="projects" class="slide">
+          <div class="table">
+            <div class="table-cell">
+              <div class="container-puzzle">
+                <div class="puzzle-wrapper">
+                  <div id="grid-wrapper">
+                    <h2 style="margin-top: 30px">
+                      <span class="font-reg">{{title}}</span>
+                    </h2>
+                    <h4>
+                      <span class="font-reg show">{{ description }}</span>
+                      {% if c_phase == 1 or c_phase == 2 %}
+                      <span class="simple-timer font-reg show"
+                        >[
+                        <span class="timer-day">00</span>
+                        <label class="separator">:</label>
+                        <span class="timer-hour">00</span>
+                        <label class="separator">:</label>
+                        <span class="timer-minute">00</span>
+                        <label class="separator">:</label>
+                        <span class="timer-second">00</span>]
+                      </span>
+                      {% endif %}
+                    </h4>
+
+                    <div
+                      id="grid"
+                      data-number="{{ number }}"
+                      data-author="{{ author }}"
+                    >
+                      <input id="ip" type="text" autocomplete="off" />
+                      {% for row in grid %}
+                       {% for square in row %} 
+                      {% get_rate square.col square.row as r %}
+                      <div
+                        data-x="{{ square.col }}"
+                        data-y="{{ square.row }}"
+                        class="{{ square.type }}"
+                        {% if r in anscor %}
+                        data-a="{{ square.letter }}"
+                        {% endif %}
+                      >
+                        {% if 'block' in square.type %}
+                        <img src="" alt="block" />
+                        {% endif %} {% if square.number %}
+                        <div class="grid-number">{{ square.number }}</div>
+                        {% endif %} {% block show_answers %} {% endblock %}
+                      </div>
+                      {% endfor %} 
+                      {% endfor %}
+                    </div>
+
+                    <div
+                      class="buttons"
+                      style="margin-top: 20px; margin-bottom: 20px"
+                    ></div>
+                  </div>
+
+                  {% if c_phase == 1 %}
+
+                  <div id="clues">
+                    {% if clues_list %}
+                    <div class="clue-box">
+                      <h4>Clues</h4>
+                      <ul class="cluelist">
+                        {% for c in clues_list %}
+                        <li>
+                          <i
+                            class="far fa-dot-circle"
+                            style="color: #ff7200"
+                          ></i>
+                          {{ c.clue|safe }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    {% endif %}
+                  </div>
+
+                  {% endif %} {% if c_phase == 2 %}
+
+                  <div id="clues">
+                    {% if across_clues %}
+                    <div class="clue-box">
+                      <h4>Across</h4>
+                      <ul class="cluelist">
+                        {% for c in across_clues %}
+                        <li>
+                          <i
+                            class="far fa-dot-circle"
+                            style="color: #ff7200"
+                          ></i>
+                          {{ c.clue|safe }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    {% endif %} {% if down_clues %}
+                    <div class="clue-box">
+                      <h4>Down</h4>
+                      <ul class="cluelist">
+                        {% for c in down_clues %}
+                        <li>
+                          <i
+                            class="far fa-dot-circle"
+                            style="color: #ff7200"
+                          ></i>
+                          {{ c.clue|safe }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    {% endif %}
+                  </div>
+                  {% endif %} {% if c_phase == 3 %}
+
+                  <div id="clues">
+                    {% if across_clues %}
+                    <div class="clue-box">
+                      <h4>Across</h4>
+                      <ul class="cluelist">
+                        {% for c in across_clues %}
+                        <li>
+                          <i
+                            class="far fa-dot-circle"
+                            style="color: #ff7200"
+                          ></i>
+                          <span class="clue-number">{{ c.number }}-</span>{{
+                          c.clue|safe }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    {% endif %} {% if down_clues %}
+                    <div class="clue-box">
+                      <h4>Down</h4>
+                      <ul class="cluelist">
+                        {% for c in down_clues %}
+                        <li>
+                          <i
+                            class="far fa-dot-circle"
+                            style="color: #ff7200"
+                          ></i>
+                          <span class="clue-number">{{ c.number }}-</span> {{
+                          c.clue|safe }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+    <div id="stats">
+      <div
+        style="
+          position: fixed;
+          top: 0px;
+          left: 0px;
+          cursor: pointer;
+          opacity: 0.9;
+          z-index: 10000;
+        "
+      >
+        <canvas
+          width="80"
+          height="48"
+          style="width: 80px; height: 48px; display: block"
+        ></canvas>
+        <canvas
+          width="80"
+          height="48"
+          style="width: 80px; height: 48px; display: none"
+        ></canvas>
+        <canvas
+          width="80"
+          height="48"
+          style="width: 80px; height: 48px; display: none"
+        ></canvas>
+      </div>
+    </div>
+    <div id="gui"></div>
+  </main>
+</section>
+
+
+<script type="text/javascript" src={% static 'puzzle/js/grid.js' %}></script>
+<script
+  type="text/javascript"
+  src={% static 'puzzle/js/jquerycounter.js' %}
+></script>
+<script>
+      if( parseInt('{{ c_phase }}') ==1 || parseInt('{{ c_phase }}') ==2 )
+      {
+      var phaseend=new Date( {{ countertime|date:"U" }} * 1000);
+
+      var date_now=new Date()
+      var secDate=Math.abs(phaseend-date_now)/1000;
+      var days = Math.floor(secDate / 86400);
+      secDate -= days * 86400;
+      var hours = Math.floor(secDate / 3600) % 24;
+      secDate -= hours * 3600;
+
+      // calculate (and subtract) whole minutes
+      var minutes = Math.floor(secDate / 60) % 60;
+      secDate -= minutes * 60;
+
+      // what's left is seconds
+      var seconds = secDate % 60;
+
+  $('.simple-timer').simpletimer({
+      day: days,
+      dayDom: '.timer-day',
+      hour: hours,
+      hourDom: '.timer-hour',
+      minute: minutes,
+      minuteDom: '.timer-minute',
+      second: seconds,
+      secondDom: '.timer-second',
+      endFun: function () {
+          //do something when phase is over
+          $.ajax({
+                          url: '/ajax/phase_change/',
+                          data: {},
+                          dataType: 'json',
+                          success:function(status)
+                          {
+                              if(String(status.now)=="True")
+                              {
+                                  location.reload(true);
+                              }
+                          }
+                      });
+      }
+  });
+  }
+  var grid = new GridModule.Grid(15);
+  var storage = 'solve-{{ author }}-{{ number }}';
+  grid.loadGrid(document.getElementById('grid'), storage);
+  grid.loadLetters();
+
+  var input = new GridModule.GridInput(grid);
+  input.registerControl(document.getElementById('ip'), document.getElementById('antique-IE'));
+
+  var editUrl = undefined;
+  var editCookie = undefined;
+  var puzzle_number="{{ number }}"
+  var total_number="{{ total }}"
+  var islast;
+  if(parseInt(total_number)==parseInt(puzzle_number))
+  {
+      islast=true;
+  }
+  else{
+      islast=false;
+  }
+  editUrl = "  ";
+  editCookie = ' ';
+
+  GridModule.makeButtonBox(grid, document.getElementsByClassName('buttons')[0], editUrl, editCookie);
+
+  var squares = document.querySelectorAll('.block, .light');
+  for (var i = 0; i < squares.length; i++) {
+      squares[i].addEventListener('mousedown', function(e) {
+          if (grid.activateClicked(this))
+              input.reset();
+          e.preventDefault();
+          return false;
+      });
+  }
+</script>
+{% comment %} <script src={% static 'puzzle/js/b.js' %}></script> {% endcomment %}
+{% endblock %}

@@ -1,0 +1,108 @@
+
+.cluelist{
+    list-style: none;
+    line-height: 30px;
+    font-size: 16px;
+    color: #383838;
+}
+
+
+/* Grid */
+#grid { text-align: center; position: relative; }
+#grid > input { opacity: 0; z-index: -1; position: absolute; top: 0px; left: -500px; }
+.light, .block { font-family: "din-condensed", sans-serif;background: #181818; color: #ff7200; font-size: 14px; float: left; position: relative; width: 28px; height: 28px; line-height: 28px; border-bottom: 1px solid black; border-right: 1px solid black; }
+.grid-number { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; line-height: 100%;color: #8f8c8d66; text-align: left; vertical-align: top; }
+.block { background: black; }
+.target { background: #816d6d; }
+.highlight { background: #5c4e4eb3;; }
+.letter { line-height: 100%; }
+.buttons {  justify-content: flex-end; flex-wrap: wrap; }
+
+
+
+/* Grid Creator */
+#blanks { overflow: auto; }
+#blanks > svg { float: left; padding: 2px; border: 5px solid transparent; }
+#blanks > svg:hover { border: 5px solid #336600; cursor: pointer; }
+#suggestions, #intro-message { text-align: center; height: 7.5em; margin-top: 5px; overflow: auto; }
+.suggestion { font-size: 0.8em; padding: 0em 0.2em 0em 0.2em; border-radius: 5px; white-space: nowrap; }
+.suggestion:hover { background: #ffffba; cursor: pointer; }
+.padding { padding-bottom: 2em; }
+.fade { position: relative; bottom: 2em; height: 2em; pointer-events: none;
+        background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); }
+#clues > .buttons { margin-right: 10px; }
+#save-puzzle p, #login-form p { margin-bottom: 0.6em; }
+#save-puzzle { margin-left: 10px; padding: 20px; border: 1px solid black; }
+#save-puzzle .buttons { padding: 15px; }
+#edit-controls { text-align: right; margin-top: 5px; font-size: 0.9em; }
+#edit-controls label { padding-left: 5px; vertical-align: middle; }
+#edit-controls input[type="radio"] { vertical-align: middle; margin-top: 1px; }
+
+/* Clue Creator */
+.user-clue { margin-bottom: 4px; }
+.user-clue > input { font-size: 1em; }
+.user-clue > .clue-number { border-bottom: 2px solid white; }
+.blank-clue { border-bottom: 1px dotted gray; }
+.blank-clue > .numeration { float: right; }
+.select-clue:hover { background: #ffffba; cursor: default; }
+
+
+
+@media screen and (max-width:500px) {
+    #grid-wrapper { display: block;width: 301px;margin: 0 auto;  }
+    #grid { height: 301px; margin-top: 30px;}
+    #grid, #grid-assistant, #grid-wrapper > .buttons { width: 285px; }
+    .light, .block { width: 19px; height: 19px; line-height: 19px; border-bottom: 1px solid black; border-right: 1px solid black; }
+    .topmost { border-top: 1px solid black; }
+    .leftmost { border-left: 1px solid black; }
+    #grid img { display: none; }
+    .grid-number { top: 0px; font-size: 9px; }
+    #clues { display: block; font-family: "din-condensed", sans-serif;width: 250px;margin: 0 auto;margin-top: 40px;}
+    .clue-box { width: 250px; }
+    #blanks { width: 100%; }
+    #blanks > svg { margin-left: 30px; }
+
+}
+
+@media screen and (min-width: 500px) {
+    #blanks { width: 350px; height: 490px; }
+    #grid-wrapper { display: block;width: 301px;margin: 0 auto;  }
+    #grid { height: 301px; }
+    #grid, #grid-assistant, #grid-wrapper > .buttons { width: 301px; }
+    .light, .block { width: 19px; height: 19px; line-height: 19px; border-bottom: 1px solid black; border-right: 1px solid black; }
+    .topmost { border-top: 1px solid black; }
+    .leftmost { border-left: 1px solid black; }
+    #grid img { display: none; }
+    .grid-number { top: 0px; font-size: 9px; }
+    #clues { display: block; font-family: "din-condensed", sans-serif;width: 301px;margin: 0 auto;}
+    .clue-box { width: 280px; }
+   
+
+}
+
+
+
+@media screen and (min-width: 979px) {
+    #blanks { width: 350px; height: 490px; }
+    #grid-wrapper { display: block;width: 46%;margin:0 auto;height:80vh;  }
+    #grid { height: 375px; }
+    #grid, #grid-assistant, #grid-wrapper > .buttons { width: 375px;margin: auto; }
+    .light, .block { width: 25px; height: 25px; line-height: 25px; border-bottom: 1px solid black; border-right: 1px solid black; }
+    .topmost { border-top: 1px solid black; }
+    .leftmost { border-left: 1px solid black; }
+    #grid img { display: none; }
+    .grid-number { top: 0px; font-size: 9px; }
+    #clues { display: block; font-family: "din-condensed", sans-serif;width: 54%;margin: 0 auto;height: 80vh;}
+    .clue-box { width: 100%; }
+   .puzzle-wrapper
+   {
+       width:88%;
+       display: block;
+       height: auto;
+   }
+
+}
+
+
+
+@page { size: portrait; }

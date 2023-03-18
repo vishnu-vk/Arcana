@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="ARCANA">
+    <title>{% block title %}Arcana {% endblock %}</title>
+
+    <link rel="stylesheet" href={% static 'puzzle/css/style.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'puzzle/css/main.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'puzzle/css/build.css' %}>
+    <link rel="stylesheet" href={% static 'puzzle/css/grid.css' %}>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src={% static 'puzzle/js/tablesorter.js' %}></script>
+    {% comment %} <link rel="icon" href="./favicon.ico" type="image/x-icon" /> {% endcomment %}
+
+  </head>
+  <body>
+    <main>
+      <h1>Welcome to My Website</h1>
+      <div id="content" name="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </main>
+    {% comment %}
+    <script src="index.js"></script>
+    {% endcomment %}
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js'></script>
+    <script src={% static 'puzzle/js/b.js' %}></script>
+  </body>
+</html>

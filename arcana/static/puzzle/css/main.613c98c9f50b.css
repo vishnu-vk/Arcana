@@ -1,0 +1,175 @@
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+body { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+html, body { position: relative; width: 100%; height: 100%; background: #000; /*overflow: hidden;*/ }
+
+/**
+ * globals
+ */
+* { margin: 0; padding: 0; border: 0; outline: 0; box-sizing: border-box; /*-webkit-appearance: none; appearance: none;*/ }
+
+.table { display: table; }
+.table-cell { display: table-cell; vertical-align: middle; }
+
+.unselectable { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+
+.font-reg { font-family: "din-condensed", sans-serif; font-style: normal; font-weight: 400; }
+.font-bold { font-family: "din-condensed", sans-serif; font-style: normal; font-weight: 700; }
+
+@media only screen and (max-width: 812px) and (min-aspect-ratio: 13/9) {
+    
+	body {  background-position: center; background-size: cover; }
+}
+
+/**
+ * temp
+ */
+#stats, .dg.ac { display: none !important; }
+table {
+    border-spacing: 1;
+border-collapse: collapse;
+
+border-radius: 0px;
+overflow: hidden;
+max-width: 800px;
+width: 100%;
+margin: 0 auto;
+position: relative;
+color: #8d8273;
+
+}
+table * {
+  position: relative;
+  text-transform: uppercase;
+}
+table td, table th {
+  padding-left: 8px;
+}
+table thead tr {
+  height: 60px;
+  background: #ff7200;
+  font-size: 16px;
+  color:#fff;
+}
+table tbody tr {
+  height: 48px;
+  border-top: 1px solid #ff7200;
+  border-radius: 15px;
+  border-bottom: 1px solid #ff7200;
+}
+
+table td, table th {
+  text-align: left;
+}
+table td.l, table th.l {
+  text-align: right;
+}
+table td.c, table th.c {
+  text-align: center;
+}
+table td.r, table th.r {
+  text-align: center;
+}
+.instruction-wrapper
+{
+  width:80%;
+  margin: auto;
+}
+.aboutus-wrapper
+{
+  width:80%;
+  margin:auto;
+}
+@media screen and (max-width: 35.5em) {
+  table {
+    display: block;
+    width:285px;
+    height:auto;
+  }
+  .aboutus-wrapper
+  {
+    width: 74%;
+  }
+  .instruction-wrapper
+  {
+    width:74%;
+  }
+  table > *, table tr, table td, table th {
+    display: block;
+  }
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    height: auto;
+    padding: 8px 0;
+    margin:8px 0;
+  }
+  table tbody tr td {
+    padding-left: 30%;
+    margin-bottom: 12px;
+  }
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+  table tbody tr td:before {
+    position: absolute;
+    font-weight: 100;
+    width: 40%;
+    left: 10px;
+    top: 0;
+    color: #fff;
+  }
+  table tbody tr td:nth-child(1):before {
+    content: "Image";
+    top:18px;
+  }
+  table tbody tr td:nth-child(2):before {
+    content: "Name";
+  }
+  table tbody tr td:nth-child(3):before {
+    content: "Position";
+  }
+  table tbody tr td:nth-child(4):before {
+    content: "Points";
+  }
+  table tbody tr td:nth-child(5):before {
+    content: "Time";
+  }
+  
+
+}
+
+.puzzle-wrapper
+{
+  width: 78%;
+  margin: auto;
+  height:90vh
+}
+.puzzle-wrapper button
+{
+  width: 70px;
+  height: 35px;
+  background: #ff7200;
+  color: #fff;
+  font-family: "din-condensed", sans-serif;
+  text-transform: uppercase;
+
+}
+.container-puzzle
+{
+  margin: auto;
+}
+/* .landscape
+{
+  display: none;
+} */
+/* @media screen and (orientation:landscape) {
+  
+  section
+  {
+    display: none;
+  }
+  .landscape {
+    display: block;
+  }
+} */

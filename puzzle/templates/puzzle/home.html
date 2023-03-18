@@ -1,0 +1,114 @@
+{% extends 'puzzle/base.html' %}
+{% load static %}
+{% load socialaccount %}
+{%block title%} Arcana - Home {%endblock%} {%block content%}
+<section id="application" class="unselectable">
+    <main id="main">
+        <nav id="app-nav">
+            <div id="nav-bg1" ></div>
+            <div id="nav-bg2" ></div>
+            <div id="nav-wrap">
+                <div class="table">
+                    <div class="table-cell">
+                        <ul><span class="top line" ></span>
+                            {% if user.is_authenticated %}
+                            <li class="logedinuser"><a href="#" name="contacts"><span class="label font-reg" style="color: #fff;font-size: 20px" > <div style="width: auto;margin: auto;display: flex;"><img style="width: 50px;height: 50px;border-radius: 50px;margin: auto;" src="{{ user.socialaccount_set.all.0.get_avatar_url }}"  /> <span style="width: auto;margin-top: 12px;margin-left: 10px;">Hi, {{ user.socialaccount_set.all.0.extra_data.name }} </span> </div></span> <span class="row"><span class="dark" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span> <span class="red" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span></span></a></li>
+                            {% endif %}
+                            <li class="active"><a href="/" name="slider"><span class="label font-reg" > Home </span> <span class="row"><span class="dark" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span> <span class="red" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span></span></a></li>
+                            <li class=""><a href="{% url 'scoreboard' %}" name="scoreboard"><span class="label font-reg" > Leader Borad </span> <span class="row"><span class="dark" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span> <span class="red" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span></span></a></li>
+                            <li class=""><a href="{% url 'about' %}" name="about"><span class="label font-reg" > About Us </span> <span class="row"><span class="dark" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span> <span class="red" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span></span></a></li>
+                            <li class=""><a href="{% url 'rules' %}" name="rules"><span class="label font-reg" > Instructions </span> <span class="row"><span class="dark" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span> <span class="red" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span></span></a></li>
+                            {% if user.is_authenticated %}
+                <li class=""><a href="{% url 'account_logout' %}" name="logout"><span class="label font-reg" > Logout </span> <span class="row"><span class="dark" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span> <span class="red" style="transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"></span></span></a></li>
+                {% endif %}
+                            <span class="bot line" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span></ul>
+                    </div>
+                </div>
+                
+                <ul class="social">
+                    <li id="fb" style="transform: translate3d(0px, 0px, 0px);">
+                        <a href="" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li id="in" style="transform: translate3d(0px, 0px, 0px);">
+                        <a href="" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li id="yt" style="transform: translate3d(0px, 0px, 0px);">
+                        <a href="" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                    </li>
+                </ul>
+                <p class="footer"><span style="transform: translate3d(0px, 0px, 0px);color:#7b7a7a"><span class="font-reg row"><i class="fas fa-laptop-code" style="color:#ff7200;"></i>&nbsp;DEPARTMENT OF INFORMATION TECHNOLOGY</span><br><span class="font-reg">Created By <span style="color:#ff7200;">&lt;/TEAM ARCANA&gt;</span></span></span>
+                </p>
+            </div>
+                    </nav>
+        <div id="app-ui" class="dark">
+            <header class="">
+    
+
+
+
+            </header>
+            
+        
+        <div id="hamb">
+            <div class="open">
+                <div class="icon open-menu">
+                    <div class="line-top">
+                        <div class="line-1" style="height: 12px; transform: translate3d(0px, 0px, 0px);"><span></span></div>
+                        <div class="line-2"><span></span></div>
+                    </div>
+                    <div class="line-bot">
+                        <div class="line-1" style="height: 32px; transform: translate3d(0px, 0px, 0px);"><span></span></div>
+                        <div class="line-2"><span></span></div>
+                    </div>
+                </div>
+                <div class="label open-menu"><span style="transform: translate3d(0px, 0px, 0px);"><span class="holder"><span class="font-reg">Menu</span> <span class="open font-reg">Open</span></span>
+                    </span>
+                </div>
+            </div>
+            <div class="close">
+                <div class="icon close-menu">
+                    <div class="line-top">
+                        <div class="line-1"><span></span></div>
+                        <div class="line-2"><span></span></div>
+                    </div>
+                    <div class="line-bot">
+                        <div class="line-1"><span></span></div>
+                        <div class="line-2"><span></span></div>
+                    </div>
+                </div>
+                <div class="label close-menu"><span><span class="holder"><span class="font-reg">Close</span> <span class="close font-reg">Close</span></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div id="app-main">
+            <section id="index" class="root">
+                <section id="projects" class="slide">
+                    <div class="table">
+                        <div class="table-cell">
+                            <h4><span class="font-reg show"><span class="row"><img src={% static 'puzzle/images/AvishkarLogo.png' %} style="width:75px;height:75px;" alt="s"><span class="row" style="color: #ff7200;font-size: 14px;">AVISHKAR 2K20</span></h4>
+                            <h1 class=""><span class="font-reg"><span class="left line" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span> <span class="letter" style="transform: translate3d(0px, 0px, 0px);">ARCANA-2.0</span><span class="right line" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span></span> <!----></h1>
+                            <h4><span class="font-reg show"><span class="row" style="width: auto; transform: translate3d(0px, 0px, 0px);"><span>“The world's a puzzle, no need to make sense out of it”</span></span><span class="row" style="width: auto; transform: translate3d(0px, 0px, 0px);"><span>Dan Millman</span></span></span> <span class="font-reg"></span> <!----> <!----></h4>
+                            <a href={% provider_login_url 'google' %} style="text-decoration: none;" >
+                            <button class="main-btn red"><span class="wrap" style="transform: translate3d(0px, 0px, 0px);"><span class="line lt" style="width: 40px; left: 15%; transform: translate3d(0px, 0px, 0px);"></span> <span class="line lb" style="width: 40px; right: 15%; transform: translate3d(0px, 0px, 0px);"></span> <span class="line ll" style="height: 10px; top: 60%; transform: translate3d(0px, 0px, 0px);"></span> <span class="line lr" style="height: 10px; bottom: 60%; transform: translate3d(0px, 0px, 0px);"></span> <span style="opacity: 1;"><i class="fab fa-google"  style="color: #ff7200;font-size: 25px;"></i>&nbsp;<span class="font-reg" style="font-size: 25px;">Login</span></span>
+                                </span>
+                            </button></a> 
+                        </div>
+                    </div>
+                </section>
+                
+                
+            </section>
+        </div>
+        <div id="stats">
+            <div style="position: fixed; top: 0px; left: 0px; cursor: pointer; opacity: 0.9; z-index: 10000;">
+                <canvas width="80" height="48" style="width: 80px; height: 48px; display: block;"></canvas>
+                <canvas width="80" height="48" style="width: 80px; height: 48px; display: none;"></canvas>
+                <canvas width="80" height="48" style="width: 80px; height: 48px; display: none;"></canvas>
+            </div>
+        </div>
+        <div id="gui"></div>
+    </main>
+</section>
+{%endblock%}
